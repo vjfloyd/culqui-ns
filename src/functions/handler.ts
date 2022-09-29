@@ -1,9 +1,6 @@
 'use strict';
-import { config } from 'dotenv';
-import { CardService } from './service/card.service'
-import  { validateAuth }  from './utils/authValidator';
-import {Card} from "./db/schema/Card";
-import {connectToDatabase} from "./db";
+import { CardService } from '../service/card.service'
+import {connectToDatabase} from "../db";
 
 export const create = async (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
@@ -37,6 +34,7 @@ export const getOne = async (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
     await connectToDatabase();
     try {
+        console.log('function getOne');
         let service = new CardService();
         const card =  await service.getCard(event.pathParameters.id);
         callback(null, {

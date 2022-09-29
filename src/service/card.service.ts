@@ -2,27 +2,28 @@ import {connectToDatabase} from "../db";
 import {Card} from '../db/schema/Card';
 import {CardDocument} from '../model/cards.model'
 import {generateToken} from '../utils/tokenGenerator';
-import {CardDto} from '../dto/CardDto'
-import {ICard} from "../domain/models/ICard";
 
 export class CardService {
 
-
     public async save(card: any) {
         console.log('CardService -> save')
-        console.log("Token2=>" , generateToken(16));
         await connectToDatabase();
         let cardDocument : CardDocument = JSON.parse(card.body);
         cardDocument.token = generateToken(16);
         await Card.create(cardDocument);
     }
 
-    public async getCard(tokenvar: string) {
+    public async getCard(token: string) {
+        console.log('CardService -> getCard')
         await connectToDatabase();
-        console.log('token-->', tokenvar)
-        const card  = await Card.findOne({ token: tokenvar});
-        return card;
-
+        const card  = await Card.findOne({ token: token});
+        const cardDto  =  {
+            cardNumber: card.cardNumber,
+            expirationMonth: card.expirationMonth,
+            expirationYear: card.expirationYear,
+            email: card.email
+        }
+        return cardDto;
     }
 
 }
