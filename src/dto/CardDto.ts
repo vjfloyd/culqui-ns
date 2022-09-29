@@ -1,7 +1,7 @@
-export interface CardDto {
+export class CardDto {
     cardNumber : string
-    cvv: number
     expirationMonth: string
     expirationYear: string
     email: string
+
 }
