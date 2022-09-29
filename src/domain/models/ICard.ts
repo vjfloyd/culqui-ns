@@ -6,4 +6,5 @@ export interface ICard extends Document {
     expirationMonth: string
     expirationYear: string
     email: string
+
 }

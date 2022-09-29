@@ -12,12 +12,12 @@ export const create = async (event, context, callback) => {
     try {
         let service = new CardService();
 
-        if(validateAuth(JSON.parse(event.body))){
-            callback(null, {
-                statusCode: 400,
-                body: JSON.stringify("Invalid Input parameter")
-            })
-        }
+        // if(validateAuth(JSON.parse(event.body))){
+        //     callback(null, {
+        //         statusCode: 400,
+        //         body: JSON.stringify("Invalid Input parameter")
+        //     })
+        // }
         const card = service.save(event);
 
         callback(null, {

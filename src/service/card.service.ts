@@ -9,9 +9,10 @@ export class CardService {
     public async save(card: any) {
         console.log('CardService -> save')
         console.log("Token2=>" , generateToken(16));
-
         await connectToDatabase();
-        await Card.create(JSON.parse(card.body))
+        let cardDocument : CardDocument = JSON.parse(card.body);
+        cardDocument.token = generateToken(16);
+        await Card.create(cardDocument);
     }
 
 }

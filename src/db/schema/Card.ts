@@ -5,7 +5,8 @@ const CardSchema = new Schema({
     cvv: String,
     expirationMonth: String,
     expirationYear: String,
-    email: String
+    email: String,
+    token: String,
 });
 
 export const Card = model('Card', CardSchema);
