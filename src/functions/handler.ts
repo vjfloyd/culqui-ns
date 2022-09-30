@@ -1,25 +1,19 @@
 'use strict';
 import { CardService } from '../service/card.service';
 import { tokenValidator } from '../utils/tokenValidator';
+import { inputValidator } from '../utils/inputValidator';
 
 export const create = async (event, context, callback) => {
     console.log('function getOne');
     context.callbackWaitsForEmptyEventLoop = false;
-
     try {
         tokenValidator(event.headers, callback);
+        inputValidator(JSON.parse(event.body), callback);
         let service = new CardService();
-        // if(validateAuth(JSON.parse(event.body))){
-        //     callback(null, {
-        //         statusCode: 400,
-        //         body: JSON.stringify("Invalid Input parameter")
-        //     })
-        // }
-        const card = service.save(event);
-
+        await service.save(event);
         callback(null, {
             statusCode: 200,
-            body: JSON.stringify(card)
+            body: JSON.stringify('card created')
         });
     } catch(err) {
         callback(null, {
