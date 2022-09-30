@@ -1,0 +1,33 @@
+# culqui-ns
+
+The application uses several AWS resources, including Lambda functions and an API Gateway API. These resources are defined in the `template.yaml` file in this project. You can update the template to add AWS resources through the same deployment process that updates your application code.
+
+## Desplegar la aplicacion localmente
+
+To build and deploy your application for the first time, run the following in your shell:
+
+```bash
+culqui-ns$ npm install 
+culqui-ns$ serverless offline 
+```
+
+
+## Test unitarios funcionales usando la funcionalidad de despliegue a nivel Local
+ El token statico elegido es  = pk_test_abABcd
+
+### Creacion del card token
+
+    http://localhost:3000/dev/cards
+
+### Recuperar los datos del card
+
+    http://localhost:3000/dev/cards/cisudSveF5xMKwjK
+
+## Unit tests
+
+```bash
+culqui-ns$ cd src
+src$ npm install
+src$ npm run test
+```
+

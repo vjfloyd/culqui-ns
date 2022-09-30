@@ -1,13 +1,15 @@
 'use strict';
-import { CardService } from '../service/card.service'
-import {connectToDatabase} from "../db";
+import { CardService } from '../service/card.service';
+import { connectToDatabase } from "../db";
+import { tokenValidator } from "../utils/tokenValidator";
 
 export const create = async (event, context, callback) => {
+    console.log('function getOne');
     context.callbackWaitsForEmptyEventLoop = false;
 
     try {
+        tokenValidator(event.headers, callback);
         let service = new CardService();
-
         // if(validateAuth(JSON.parse(event.body))){
         //     callback(null, {
         //         statusCode: 400,
@@ -31,10 +33,11 @@ export const create = async (event, context, callback) => {
 
 
 export const getOne = async (event, context, callback) => {
+    console.log('function getOne');
     context.callbackWaitsForEmptyEventLoop = false;
-    await connectToDatabase();
+
     try {
-        console.log('function getOne');
+        tokenValidator(event.headers, callback);
         let service = new CardService();
         const card =  await service.getCard(event.pathParameters.id);
         callback(null, {
