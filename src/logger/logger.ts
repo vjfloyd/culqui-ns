@@ -1,6 +1,6 @@
 /**
  * @export
- * @class SimpleLogger (TODO: replace with https://github.com/winstonjs/winston)
+ * @class SimpleLogger
  */
 export default class SimpleLogger {
     private target: string
