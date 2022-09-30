@@ -1,7 +1,6 @@
 'use strict';
 import { CardService } from '../service/card.service';
-import { connectToDatabase } from "../db";
-import { tokenValidator } from "../utils/tokenValidator";
+import { tokenValidator } from '../utils/tokenValidator';
 
 export const create = async (event, context, callback) => {
     console.log('function getOne');

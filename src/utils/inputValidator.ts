@@ -1,5 +1,6 @@
 const validateAuth = (requestBody: any) => {
-    console.log("request=>", requestBody)
+    console.log("requestBody.cvv=>", requestBody.cvv)
+    console.log("requestBody.cvv=>", requestBody.year)
     let emailPattern = /^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$/;
     if (requestBody.cvv.length < 3 && requestBody.cvv.length > 4)
         console.log('x')
