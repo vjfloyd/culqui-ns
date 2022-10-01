@@ -2,7 +2,6 @@
 export const tokenValidator = (headers, callback) => {
     try{
         let authorization = headers['Authorization'].split(' ');
-        console.log('xxx=',!authorization);
           if( !authorization || authorization[0] !== 'Bearer'
               || authorization[1] !== 'pk_test_abABcd') {
                 callback(null, {
@@ -17,6 +16,3 @@ export const tokenValidator = (headers, callback) => {
         });
     }
 }
-// module.exports = {
-//     tokenValidator
-// }
