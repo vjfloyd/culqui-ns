@@ -22,22 +22,6 @@ export default class MongoDatabase {
         return this._instance || (this._instance = new this())
     }
 
-    // private async connect() {
-    //     let conn = null;
-    //     if (conn == null) {
-    //         conn = mongoose.connect("mongodb://127.0.0.1:27017/culquidb", {
-    //             serverSelectionTimeoutMS: 10000
-    //         }).then(() => mongoose);
-    //
-    //         // `await`ing connection after assigning to the `conn` variable
-    //         // to avoid multiple function calls creating new connections
-    //         await conn;
-    //     }
-    //     return conn;
-    //
-    // };
-
-
     private async connect(): Promise<Connection> {
         logger.startTimer()
         if (cacheDB && cacheDB.readyState === 1) {
@@ -52,9 +36,7 @@ export default class MongoDatabase {
                     bufferMaxEntries: 0
                 }
                 // const uri = `mongodb://${config.get('db.host')}:${config.get('db.port')}/${config.get('db.name')}`
-
-                const mongo = await connect("mongodb://localhost:27017/culquidb?directConnection=true")
-
+                const mongo = await connect("mongodb://localhost:27017/culquidb")
 
                 cacheDB = mongo.connection
                 console.log('MONGO----->');
