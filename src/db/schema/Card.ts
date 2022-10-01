@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 
-const CardSchema = new Schema({
+export const CardSchema = new Schema({
     cardNumber : String,
     cvv: String,
     expirationMonth: String,
