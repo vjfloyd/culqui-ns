@@ -23,11 +23,4 @@ culqui-ns$ serverless offline
 
     http://localhost:3000/dev/cards/cisudSveF5xMKwjK
 
-## Unit tests
-
-```bash
-culqui-ns$ cd src
-src$ npm install
-src$ npm run test
-```
 
