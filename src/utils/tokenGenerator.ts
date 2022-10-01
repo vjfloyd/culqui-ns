@@ -1,5 +1,5 @@
 
-const generateToken = (length) => {
+export const generateToken = (length) => {
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const charactersLength = characters.length;
@@ -8,8 +8,4 @@ const generateToken = (length) => {
             charactersLength));
     }
     return result;
-}
-
-module.exports = {
-    generateToken
 }

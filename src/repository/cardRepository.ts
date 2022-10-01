@@ -1,4 +1,3 @@
-import { Document } from 'mongoose'
 import { BaseRepository } from './baseRepository'
 import {ICard} from '../domain/models/ICard'
 import CardSchema from '../db/schema/Card'

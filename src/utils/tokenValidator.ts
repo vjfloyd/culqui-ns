@@ -1,5 +1,5 @@
 
-const tokenValidator = (headers, callback) => {
+export const tokenValidator = (headers, callback) => {
     try{
         let authorization = headers['Authorization'].split(' ');
         console.log('xxx=',!authorization);
@@ -17,6 +17,6 @@ const tokenValidator = (headers, callback) => {
         });
     }
 }
-module.exports = {
-    tokenValidator
-}
+// module.exports = {
+//     tokenValidator
+// }
